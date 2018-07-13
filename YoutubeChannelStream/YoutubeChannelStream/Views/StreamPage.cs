@@ -23,6 +23,7 @@ namespace YoutubeChannelStream
 			On<Xamarin.Forms.PlatformConfiguration.iOS>().SetUseSafeArea(true);
 
 			_listView.ItemSelected += listView_ItemSelected;
+			_listView.SelectedItem = null; 
 
 			// Default values to display if the feeds aren't loading
 			var label = new Label();
@@ -59,10 +60,7 @@ namespace YoutubeChannelStream
 			_listView.IsEnabled = false;
 			var item = e.SelectedItem as RSSFeedObject;
 			await Navigation.PushAsync(new StreamDetailPage(item));
-			//{
-			//	BarTextColor = Color.FromRgb(19, 19, 19),
-			//	BarBackgroundColor = Color.FromRgb(234, 51, 35)
-			//};
+
 			_listView.IsEnabled = true;
 		}
 		#endregion Private Functions & Event Handlers
@@ -71,7 +69,18 @@ namespace YoutubeChannelStream
 		protected async override void OnAppearing()
 		{
 			base.OnAppearing();
-			var rssFeeds = await FeedReader.ReadAsync("https://www.youtube.com/feeds/videos.xml?channel_id=UCwCOn0lguoGNEIwLgRpoPYw");
+			var rssFeeds = new Feed();
+			try 
+			{
+				rssFeeds = await FeedReader.ReadAsync("https://www.youtube.com/feeds/videos.xml?channel_id=UCwCOn0lguoGNEIwLgRpoPYw");
+			}
+			catch (Exception ex)
+			{
+				Console.WriteLine(ex);
+				_feeds.Add(new RSSFeedObject() { Title = "Test", Date = "January 2099", Link = "www.example.com" });
+				PopulateList();
+				return;
+			}
 			foreach (var item in rssFeeds.Items)
 			{
 				var feed = new RSSFeedObject()
@@ -83,11 +92,6 @@ namespace YoutubeChannelStream
 				_feeds.Add(feed);
 			}
 			PopulateList();
-		}
-
-		protected override void OnDisappearing()
-		{
-			base.OnDisappearing();
 		}
 		#endregion LifeCycle Event Overrides
 	}
