@@ -6,6 +6,6 @@
 
   <ItemGroup>
     <PackageReference Include="Xamarin.Forms" Version="3.0.0.482510" />
-    <PackageReference Include="SimpleFeedReader" Version="1.0.7" />
+    <PackageReference Include="CodeHollow.FeedReader" Version="1.1.2" />
   </ItemGroup>
 </Project>

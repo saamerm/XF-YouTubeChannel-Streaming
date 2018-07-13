@@ -6,7 +6,7 @@ using System.Net.Http;
 using System.Threading.Tasks;
 using System.Windows.Input;
 using System.Xml.Linq;
-using SimpleFeedReader;
+using CodeHollow.FeedReader;
 
 namespace YoutubeChannelStream
 {
@@ -55,8 +55,7 @@ namespace YoutubeChannelStream
 
 			FeedItems.Clear();
 
-			var reader = new FeedReader();
-			var items = reader.RetrieveFeed("https://www.youtube.com/feeds/videos.xml?channel_id=UCwCOn0lguoGNEIwLgRpoPYw");
+			var feeds = await FeedReader.ReadAsync("https://www.youtube.com/feeds/videos.xml?channel_id=UCwCOn0lguoGNEIwLgRpoPYw");
 
 			var list = new List<RSSFeedObject>();
 			foreach (var i in items)
