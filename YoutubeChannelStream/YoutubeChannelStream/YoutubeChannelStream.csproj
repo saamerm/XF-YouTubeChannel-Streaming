@@ -8,4 +8,10 @@
     <PackageReference Include="Xamarin.Forms" Version="3.0.0.482510" />
     <PackageReference Include="CodeHollow.FeedReader" Version="1.1.2" />
   </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Resources\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Remove="RSSViewModel.cs" />
+  </ItemGroup>
 </Project>

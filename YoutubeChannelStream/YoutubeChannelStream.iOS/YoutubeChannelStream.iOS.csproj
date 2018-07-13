@@ -159,4 +159,9 @@
       <Name>YoutubeChannelStream</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="..\YoutubeChannelStream\Resources\youtube.png">
+      <Link>Resources\youtube.png</Link>
+    </BundleResource>
+  </ItemGroup>
 </Project>
