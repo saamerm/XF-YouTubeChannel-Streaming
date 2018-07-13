@@ -1,4 +1,4 @@
-# Microsoft-App-Center-Push-Notifications API
+# Youtube Channel Stream List and Details
 
 Xamarin.Forms Application that uses Visual Studio (on Mac or Windows) to build iOS and Android apps that work to create a personal application for a Youtube channel by just changing the channel Id on line 75 of the StreamPage.
 ###### 
