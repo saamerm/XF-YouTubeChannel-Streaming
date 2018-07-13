@@ -11,7 +11,12 @@ namespace YoutubeChannelStream
 		{
 			InitializeComponent();
 
-			MainPage = new StreamPage();
+			MainPage = new NavigationPage(new StreamPage())
+			{
+				BarTextColor = Color.FromRgb(19,19,19),
+				BarBackgroundColor = Color.FromRgb(234, 51, 35)
+			};
+
 		}
 
 		protected override void OnStart()

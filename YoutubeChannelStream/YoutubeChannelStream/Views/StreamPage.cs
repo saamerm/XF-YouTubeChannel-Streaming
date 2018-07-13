@@ -3,13 +3,14 @@ using YoutubeChannelStream;
 using Xamarin.Forms;
 using CodeHollow.FeedReader;
 using System.Collections.Generic;
+using Xamarin.Forms.PlatformConfiguration.iOSSpecific;
 
 namespace YoutubeChannelStream
 {
 	public class StreamPage : ContentPage
 	{
 		#region Fields
-		ListView _listView = new ListView();
+		Xamarin.Forms.ListView _listView = new Xamarin.Forms.ListView();
 		List<RSSFeedObject> _feeds = new List<RSSFeedObject>();
 		#endregion
 
@@ -17,6 +18,12 @@ namespace YoutubeChannelStream
 		public StreamPage()
 		{
 			Title = "Youtube Channel Stream";
+
+			// For iPhone X
+			On<Xamarin.Forms.PlatformConfiguration.iOS>().SetUseSafeArea(true);
+
+			_listView.ItemSelected += listView_ItemSelected;
+
 			// Default values to display if the feeds aren't loading
 			var label = new Label();
 			var stack = new StackLayout()
@@ -37,7 +44,6 @@ namespace YoutubeChannelStream
 		private void PopulateList()
 		{
 			_listView.HasUnevenRows = true;
-			_listView.ItemSelected += listView_ItemSelected;
 
 			DataTemplate template = new DataTemplate(typeof(CustomCell));
 			_listView.ItemTemplate = template;
@@ -47,10 +53,17 @@ namespace YoutubeChannelStream
 			Content = _listView;
 		}
 
-		private void listView_ItemSelected(object sender, SelectedItemChangedEventArgs e)
+		private async void listView_ItemSelected(object sender, SelectedItemChangedEventArgs e)
 		{
+			// To prevent opening multiple pages on double tapping
+			_listView.IsEnabled = false;
 			var item = e.SelectedItem as RSSFeedObject;
-			//Navigation.PushAsync(new JokeDetail(item));
+			await Navigation.PushAsync(new StreamDetailPage(item));
+			//{
+			//	BarTextColor = Color.FromRgb(19, 19, 19),
+			//	BarBackgroundColor = Color.FromRgb(234, 51, 35)
+			//};
+			_listView.IsEnabled = true;
 		}
 		#endregion Private Functions & Event Handlers
 
@@ -70,6 +83,11 @@ namespace YoutubeChannelStream
 				_feeds.Add(feed);
 			}
 			PopulateList();
+		}
+
+		protected override void OnDisappearing()
+		{
+			base.OnDisappearing();
 		}
 		#endregion LifeCycle Event Overrides
 	}
