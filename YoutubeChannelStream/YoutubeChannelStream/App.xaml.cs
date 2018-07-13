@@ -11,7 +11,7 @@ namespace YoutubeChannelStream
 		{
 			InitializeComponent();
 
-			MainPage = new MainPage();
+			MainPage = new StreamPage();
 		}
 
 		protected override void OnStart()
