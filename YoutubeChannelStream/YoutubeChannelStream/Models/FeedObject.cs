@@ -3,7 +3,7 @@ using System.Text.RegularExpressions;
 
 namespace YoutubeChannelStream
 {
-	public class RSSFeedObject
+	public class FeedObject
 	{
 		public string Title { get; set; }
 		public string Date { get; set; }

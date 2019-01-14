@@ -5,11 +5,11 @@ using Xamarin.Forms.PlatformConfiguration.iOSSpecific;
 
 namespace YoutubeChannelStream
 {
-	public class StreamDetailPage : ContentPage
+	public class StreamDetailsPage : ContentPage
 	{
-		RSSFeedObject _rssFeedObject;
+		FeedObject _rssFeedObject;
 
-		public StreamDetailPage(RSSFeedObject feedObject)
+		public StreamDetailsPage(FeedObject feedObject)
 		{
 			Title = feedObject.Title;
 			_rssFeedObject = feedObject;
@@ -27,7 +27,7 @@ namespace YoutubeChannelStream
 			// According to standard video resolutions
 			var playerHeight = screenWidth / 1.5;
 
-
+			//Cannot place this logic in ViewModel, because Screen Sizes are needed to create iFrame properly
 			Uri uri = new Uri(_rssFeedObject.Link);
 			string queryString = uri.Query;
 			string technology = System.Web.HttpUtility.ParseQueryString(queryString).Get("v");
