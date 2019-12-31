@@ -42,8 +42,8 @@ Follow instructions in the docs of the website above, and try to watch a video o
 ## 4. Screenshots
 
 ### 4.1 iOS
-* ![Screenshot1](https://raw.githubusercontent.com/saamerm/XF-YouTubeChannel-Streaming/master/YoutubeChannelStream/Screenshots/Simulator Screen Shot - iPhone 5s - 2018-07-13 at 18.56.27.png)
-* ![Screenshot2](https://raw.githubusercontent.com/saamerm/XF-YouTubeChannel-Streaming/master/YoutubeChannelStream/Screenshots/Simulator Screen Shot - iPhone 5s - 2018-07-13 at 19.11.39.png)
+* ![Screenshot1](https://raw.githubusercontent.com/saamerm/XF-YouTubeChannel-Streaming/master/YoutubeChannelStream/Screenshots/Simulator%20Screen%20Shot%20-%20iPhone%205s%20-%202018-07-13%20at%2018.56.27.png)
+* ![Screenshot2](https://raw.githubusercontent.com/saamerm/XF-YouTubeChannel-Streaming/master/YoutubeChannelStream/Screenshots/Simulator%20Screen%20Shot%20-%20iPhone%205s%20-%202018-07-13%20at%2019.11.39.png)
 
 ### 4.2 Android
 * ![Screenshot1](https://raw.githubusercontent.com/saamerm/XF-YouTubeChannel-Streaming/master/YoutubeChannelStream/Screenshots/Screenshot_1531524674.png)
